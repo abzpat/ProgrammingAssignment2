@@ -11,31 +11,31 @@
 makeCacheMatrix <- function(x = matrix()) {  
   # Initializing cachedInvMat to Null while making
   # the cached matrix for the first time
-  cachedInvMat <- NULL
+    cachedInvMat <- NULL
   
   # To Set the enviornmental variables x and cachedInvMat
-  set <- function(locMat){
-    cachedInvMat <<- NULL
-    x <<- locMat
-  }
+    set <- function(locMat){
+      cachedInvMat <<- NULL
+      x <<- locMat
+    }
   
   # To get the matrix x
-  get <- function() {x}
+    get <- function() {x}
   
   # To push the solvedMat to the enviornmental variable cachedInvMat
-  setSolve <- function(solvedMat){cachedInvMat <<- solvedMat}
+    setSolve <- function(solvedMat){cachedInvMat <<- solvedMat}
   
   # To retrieve the cachedInvMat back
-  getSolve <- function(){cachedInvMat}
+    getSolve <- function(){cachedInvMat}
   
   # To create a list which will help to obtain the cached Matrix back
-  l<-list(set = set, get = get, setSolve = setSolve, getSolve = getSolve)
+    l<-list(set = set, get = get, setSolve = setSolve, getSolve = getSolve)
   # A warning message is displayed for non-square matrix
-  if(NCOL(x) != NROW(x)){
-    warning("Special matrix is created. Inverse of this matrix is not possible as it is a non-square matrix")
-  }
+    if(NCOL(x) != NROW(x)){
+      warning("Special matrix is created. Inverse of this matrix is not possible as it is a non-square matrix")
+    }
   #Print special matrix
-  l
+    l
 }
 
 ## Function     : cacheSolve()
@@ -45,7 +45,6 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Description  : This function will accept a cached matrix prepared by 
 ##                makeCacheMatrix and returns the inverse of x
 cacheSolve <- function(x, ...) {
-  
   retuningMatrix = NULL
   # Retrieving the cached matrix 
   cachedInvMat <- x$getSolve()
