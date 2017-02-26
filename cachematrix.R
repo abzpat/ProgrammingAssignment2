@@ -1,4 +1,3 @@
-## Write a short comment describing this function
 ## Matrix inversion is usually a costly computation. So as to reduce this overhead of 
 ## recomputation, it makes sense to cache. Below two functions are made to cache the 
 ## matrix and then find the inverse of matrix.
